@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
                 isRunning = false;
         }
 
-        const Uint8* keys = SDL_GetKeyboardState(NULL);
+        const Uint8* keys = SDL_GetKeyboardState(NULL); //»óÇÏÁÂ¿ì
         if (keys[SDL_SCANCODE_LEFT])  rect.x -= SPEED;
         if (keys[SDL_SCANCODE_RIGHT]) rect.x += SPEED;
         if (keys[SDL_SCANCODE_UP])    rect.y -= SPEED;
