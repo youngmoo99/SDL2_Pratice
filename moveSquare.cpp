@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
     }
 
     // 사각형 초기 위치
-    SDL_Rect rect = { 100, 100, RECT_SIZE, RECT_SIZE };
+    SDL_Rect rect = { 100, 100, RECT_SIZE, RECT_SIZE }; //왼쪽 상단 모서리의 x좌표, 왼쪽 상단 모서리의 y좌표, 가로길이, 세로 길이
 
     bool isRunning = true;
     SDL_Event event;
@@ -56,10 +56,10 @@ int main(int argc, char* argv[])
         }
 
         const Uint8* keys = SDL_GetKeyboardState(NULL); //키 입력 처리
-        if (keys[SDL_SCANCODE_LEFT])  rect.x -= SPEED; // 좌
-        if (keys[SDL_SCANCODE_RIGHT]) rect.x += SPEED; // 우
-        if (keys[SDL_SCANCODE_UP])    rect.y -= SPEED; // 상
-        if (keys[SDL_SCANCODE_DOWN])  rect.y += SPEED; // 하
+        if (keys[SDL_SCANCODE_LEFT] && rect.x > 0) rect.x -= SPEED; // 좌
+        if (keys[SDL_SCANCODE_RIGHT] && rect.x + rect.w < WINDOW_WIDTH ) rect.x += SPEED; // 우
+        if (keys[SDL_SCANCODE_UP] && rect.y > 0)    rect.y -= SPEED; // 상
+        if (keys[SDL_SCANCODE_DOWN] && rect.y + rect.h < WINDOW_HEIGHT)  rect.y += SPEED; // 하
 
         // 렌더링
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // 배경: 흰색
