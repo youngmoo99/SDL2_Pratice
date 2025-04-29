@@ -29,6 +29,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+
     // 렌더러 생성
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
@@ -41,6 +42,7 @@ int main(int argc, char* argv[])
 
     // 사각형 초기 위치
     SDL_Rect rect = { 100, 100, RECT_SIZE, RECT_SIZE }; //왼쪽 상단 모서리의 x좌표, 왼쪽 상단 모서리의 y좌표, 가로길이, 세로 길이
+
 
     bool isRunning = true;
     SDL_Event event;
@@ -65,7 +67,7 @@ int main(int argc, char* argv[])
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // 배경: 흰색
         SDL_RenderClear(renderer); //SDL_RenderClear → 화면(배경) 지우기
 
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // 사각형: 빨간색
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255 ); // 사각형: 빨간색
         SDL_RenderFillRect(renderer, &rect); //SDL_RenderFillRect → 사각형 그리기
 
         SDL_RenderPresent(renderer); //SDL_RenderPresent → 그린 걸 화면에 반영(화면 출력)
